@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Miracle Salon, Banjara Hills, Hyderabad — premium hair, beauty, makeup and self-care experiences." />
+  <title>Miracle Salon | Banjara Hills, Hyderabad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#24201f;
+      --muted:#746b67;
+      --cream:#f8f3ed;
+      --sand:#e9ded2;
+      --rose:#b87973;
+      --rose-dark:#8f5754;
+      --white:#fffdf9;
+      --line:rgba(36,32,31,.12);
+      --shadow:0 24px 70px rgba(54,38,31,.12);
+      --radius:26px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{width:100%;display:block}
+    .container{width:min(1160px,92%);margin:auto}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 0;transition:.3s}
+    .nav.scrolled{background:rgba(248,243,237,.92);backdrop-filter:blur(18px);box-shadow:0 1px 0 var(--line)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;letter-spacing:.02em}
+    .brand span{display:block;font:600 9px "DM Sans";letter-spacing:.24em;text-transform:uppercase;color:var(--rose-dark);margin-top:-3px}
+    .nav-links{display:flex;gap:28px;align-items:center;font-size:14px;font-weight:600}
+    .nav-links a{opacity:.82}
+    .nav-links a:hover{opacity:1;color:var(--rose-dark)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 20px;border-radius:999px;background:var(--ink);color:white;font-weight:700;font-size:13px;border:1px solid var(--ink);transition:.25s}
+    .nav-cta:hover,.btn:hover{transform:translateY(-2px);background:var(--rose-dark);border-color:var(--rose-dark)}
+    .btn.light{background:transparent;color:var(--ink);border-color:var(--line)}
+    .btn.light:hover{background:white}
+    .menu{display:none;background:none;border:0;font-size:25px}
+
+    .hero{min-height:100vh;display:grid;place-items:center;padding:130px 0 70px;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:#ead8d1;right:-250px;top:80px;filter:blur(4px);opacity:.55}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:70px;align-items:center;position:relative;z-index:1}
+    .eyebrow{font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:18px}
+    h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.08;margin:0}
+    h1{font-size:clamp(54px,7vw,92px);letter-spacing:-.04em}
+    .hero-copy p{font-size:18px;color:var(--muted);max-width:550px;margin:24px 0 30px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-note{display:flex;align-items:center;gap:13px;margin-top:34px;font-size:13px;color:var(--muted)}
+    .dot{width:9px;height:9px;border-radius:50%;background:#83a36f;box-shadow:0 0 0 6px rgba(131,163,111,.14)}
+    .hero-image{position:relative}
+    .hero-image img{height:690px;object-fit:cover;border-radius:180px 180px 28px 28px;box-shadow:var(--shadow)}
+    .floating-card{position:absolute;left:-35px;bottom:35px;background:rgba(255,253,249,.95);backdrop-filter:blur(12px);padding:20px 22px;border-radius:20px;box-shadow:var(--shadow);max-width:235px}
+    .floating-card strong{font-family:"Playfair Display";font-size:28px;display:block}
+    .floating-card span{font-size:12px;color:var(--muted)}
+
+    section{padding:110px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
+    .section-head h2{font-size:clamp(38px,5vw,60px)}
+    .section-head p{max-width:430px;color:var(--muted);margin:0}
+
+    .services{background:var(--white)}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .service{padding:30px 24px;border:1px solid var(--line);border-radius:22px;background:var(--cream);transition:.25s}
+    .service:hover{transform:translateY(-5px);box-shadow:var(--shadow);background:white}
+    .service-num{font-size:11px;letter-spacing:.16em;color:var(--rose-dark);font-weight:800}
+    .service h3{font-size:28px;margin:38px 0 12px}
+    .service p{font-size:13px;color:var(--muted);margin:0}
+
+    .story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+    .story-img{height:590px;object-fit:cover;border-radius:28px;box-shadow:var(--shadow)}
+    .story-copy h2{font-size:clamp(42px,5vw,64px)}
+    .story-copy p{color:var(--muted);font-size:16px}
+    .signature{font-family:"Playfair Display";font-size:25px;margin-top:28px}
+
+    .gallery{background:#211d1c;color:white}
+    .gallery .section-head p{color:#cfc4bf}
+    .gallery-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr;grid-template-rows:260px 260px;gap:12px}
+    .gallery-grid img{height:100%;object-fit:cover;border-radius:18px;filter:saturate(.9)}
+    .gallery-grid img:first-child{grid-row:1/3}
+
+    .experience{background:var(--sand)}
+    .experience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .experience-card{background:rgba(255,253,249,.72);padding:32px;border-radius:24px}
+    .experience-card .icon{font-size:28px}
+    .experience-card h3{font-size:26px;margin:18px 0 10px}
+    .experience-card p{color:var(--muted);font-size:14px}
+
+    .quote{padding:95px 0;text-align:center;background:var(--white)}
+    .quote blockquote{font-family:"Playfair Display";font-size:clamp(30px,4vw,52px);line-height:1.2;max-width:900px;margin:0 auto 22px}
+    .quote cite{font-style:normal;color:var(--muted);font-size:13px}
+
+    .contact{background:var(--cream)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .contact-card{background:var(--white);border:1px solid var(--line);border-radius:28px;padding:38px}
+    .contact-card h2{font-size:48px;margin-bottom:18px}
+    .contact-item{padding:17px 0;border-top:1px solid var(--line)}
+    .contact-item small{display:block;text-transform:uppercase;letter-spacing:.15em;font-size:10px;color:var(--rose-dark);font-weight:800}
+    .contact-item a,.contact-item span{display:block;margin-top:4px;font-size:15px}
+    .map{min-height:100%;background:linear-gradient(135deg,#ded0c6,#f5eae1);border-radius:28px;display:flex;align-items:end;padding:28px;overflow:hidden;position:relative}
+    .map:before{content:"";position:absolute;inset:0;background-image:linear-gradient(30deg,transparent 49%,rgba(143,87,84,.12) 50%,transparent 51%),linear-gradient(120deg,transparent 49%,rgba(36,32,31,.08) 50%,transparent 51%);background-size:80px 80px;opacity:.7}
+    .map-card{position:relative;background:white;border-radius:18px;padding:22px;box-shadow:var(--shadow);width:100%}
+    .map-card strong{font-family:"Playfair Display";font-size:24px}
+
+    footer{background:#211d1c;color:#e9dfd9;padding:28px 0}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:12px}
+    .footer-brand{font-family:"Playfair Display";font-size:20px;color:white}
+
+    @media(max-width:900px){
+      .nav-links{display:none}
+      .menu{display:block}
+      .hero-grid,.story-grid,.contact-grid{grid-template-columns:1fr}
+      .hero-image img{height:570px}
+      .floating-card{left:15px}
+      .service-grid{grid-template-columns:1fr 1fr}
+      .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:320px 220px}
+      .gallery-grid img:first-child{grid-column:1/3;grid-row:auto}
+      .experience-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:560px){
+      section{padding:78px 0}
+      .hero{padding-top:110px}
+      h1{font-size:54px}
+      .hero-image img{height:480px;border-radius:110px 110px 22px 22px}
+      .service-grid{grid-template-columns:1fr}
+      .gallery-grid{display:grid;grid-template-columns:1fr;grid-template-rows:260px 220px 220px}
+      .gallery-grid img:first-child{grid-column:auto}
+      .section-head{display:block}
+      .section-head p{margin-top:18px}
+      .contact-card{padding:28px}
+      .contact-card h2{font-size:40px}
+      .footer-inner{display:block;text-align:center}
+      .footer-inner > *{margin:7px 0}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Miracle Salon<span>Banjara Hills · Hyderabad</span></a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#story">Our Story</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Visit Us</a>
+        <a class="nav-cta" href="tel:+919347921003">Book Appointment</a>
+      </nav>
+      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">A Hyderabad beauty landmark</div>
+          <h1>Beauty, with a little more <em>miracle.</em></h1>
+          <p>Hair, beauty and makeup experiences designed to help you feel polished, confident and completely yourself.</p>
+          <div class="hero-actions">
+            <a class="btn" href="tel:+919347921003">Call to Book ↗</a>
+            <a class="btn light" href="#services">Explore Services</a>
+          </div>
+          <div class="hero-note"><span class="dot"></span> Open daily · 9:00 AM – 8:00 PM</div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=85" alt="Elegant salon interior">
+          <div class="floating-card"><strong>Since 1967</strong><span>A long-standing beauty name in Hyderabad, brought forward with a modern point of view.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">What we do</div><h2>From everyday polish<br>to your big moment.</h2></div>
+          <p>Thoughtful beauty services under one roof, from hair care and styling to makeup, nails and skin-focused treatments.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service"><div class="service-num">01</div><h3>Hair</h3><p>Cuts, styling, colour, highlights, hair repair and spa experiences tailored to your hair.</p></article>
+          <article class="service"><div class="service-num">02</div><h3>Beauty</h3><p>Skin care, facials, threading and grooming rituals designed for a fresh, refined finish.</p></article>
+          <article class="service"><div class="service-num">03</div><h3>Nails</h3><p>Manicure and pedicure services for a clean, polished look from fingertips to toes.</p></article>
+          <article class="service"><div class="service-num">04</div><h3>Makeup</h3><p>Bridal, engagement, party and occasion-ready makeup with hair styling and finishing touches.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="container story-grid">
+        <img class="story-img" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=85" alt="Salon styling station">
+        <div class="story-copy">
+          <div class="eyebrow">The Miracle story</div>
+          <h2>A heritage of beauty. A fresh new chapter.</h2>
+          <p>Miracle Salon is described in its public listings as a long-standing Hyderabad beauty destination with roots going back to 1967. Today, the salon brings together hair, beauty, nails and makeup in a welcoming, service-led experience.</p>
+          <p>Whether you're maintaining your signature look or preparing for a special occasion, the goal is simple: expert care, beautiful results and an experience worth returning for.</p>
+          <div class="signature">Miracle Salon</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">The look</div><h2>Modern beauty,<br>made personal.</h2></div>
+          <p>Replace these concept images with the salon's own work and interior photography before launch for the strongest sales presentation.</p>
+        </div>
+        <div class="gallery-grid">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1100&q=85" alt="Hair styling">
+          <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=85" alt="Beauty products">
+          <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=800&q=85" alt="Salon styling">
+          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=85" alt="Salon interior">
+        </div>
+      </div>
+    </section>
+
+    <section class="experience">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Why Miracle</div><h2>The details matter.</h2></div>
+          <p>A premium website should sell the feeling of the salon before a guest ever walks through the door.</p>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card"><div class="icon">✦</div><h3>Personal attention</h3><p>Service-led consultations and styling focused on what works for each client.</p></article>
+          <article class="experience-card"><div class="icon">◌</div><h3>All in one place</h3><p>Hair, beauty, nails and makeup without having to plan multiple appointments elsewhere.</p></article>
+          <article class="experience-card"><div class="icon">♡</div><h3>Special occasions</h3><p>Polished looks for weddings, engagements, parties and moments worth remembering.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote">
+      <div class="container">
+        <div class="eyebrow">A better first impression</div>
+        <blockquote>“Your salon should look as beautiful online as it feels in person.”</blockquote>
+        <cite>Website concept created for Miracle Salon</cite>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-card">
+          <div class="eyebrow">Come say hello</div>
+          <h2>Ready for your next look?</h2>
+          <div class="contact-item"><small>Call</small><a href="tel:+919347921003">+91 93479 21003</a></div>
+          <div class="contact-item"><small>Address</small><span>Kimtee Square, 2nd Floor, Road No. 12, next to Fortune Park Hotel, Banjara Hills, Hyderabad, Telangana 500028</span></div>
+          <div class="contact-item"><small>Hours</small><span>Daily · 9:00 AM – 8:00 PM</span></div>
+          <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="tel:+919347921003">Call Now</a>
+            <a class="btn light" target="_blank" rel="noopener" href="https://maps.app.goo.gl/Jq8JzPmnQZ3BtxsH9">Get Directions</a>
+          </div>
+        </div>
+        <div class="map">
+          <div class="map-card">
+            <div class="eyebrow">Banjara Hills</div>
+            <strong>Find Miracle Salon</strong>
+            <p style="color:var(--muted);margin:8px 0 16px">Kimtee Square · Road No. 12 · Hyderabad</p>
+            <a class="btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/Jq8JzPmnQZ3BtxsH9">Open in Google Maps ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">Miracle Salon</div>
+      <div>© <span id="year"></span> Miracle Salon · Banjara Hills, Hyderabad</div>
+      <div>Concept website</div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleMenu(){
+      const links = document.querySelector('.nav-links');
+      const open = links.style.display === 'flex';
+      links.style.display = open ? '' : 'flex';
+      if(!open){
+        links.style.position='absolute';
+        links.style.top='70px';
+        links.style.left='4%';
+        links.style.right='4%';
+        links.style.flexDirection='column';
+        links.style.alignItems='stretch';
+        links.style.padding='20px';
+        links.style.background='rgba(255,253,249,.98)';
+        links.style.borderRadius='20px';
+        links.style.boxShadow='0 20px 50px rgba(0,0,0,.12)';
+      }
+    }
+  </script>
+</body>
+</html>
